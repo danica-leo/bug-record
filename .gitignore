@@ -1,4 +1,5 @@
 #dependencies
 .parcel-cache
+parcel-bundle-reports
 node_modules
 dist

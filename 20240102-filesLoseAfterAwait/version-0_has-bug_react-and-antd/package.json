@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel index.html"
   },
-  "author": "",
+  "author": "danica.hold",
   "license": "ISC",
   "dependencies": {
+    "antd": "^5.12.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@parcel/reporter-bundle-analyzer": "^2.10.3",
     "parcel": "^2.10.3",
     "process": "^0.11.10"
   }
