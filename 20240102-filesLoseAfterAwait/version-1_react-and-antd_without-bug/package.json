@@ -1,0 +1,22 @@
+{
+  "name": "version-0_has-bug_react-and-antd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "author": "danica.hold",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^5.12.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@parcel/reporter-bundle-analyzer": "^2.10.3",
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  }
+}
