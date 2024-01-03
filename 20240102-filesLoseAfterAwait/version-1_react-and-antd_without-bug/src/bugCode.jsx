@@ -50,7 +50,7 @@ export default function BugCode() {
     console.log(e);
     debugger;
     if (!e) return;
-    const { files: files4 } = e.target;
+    window.temp1 = e.target;
     const files1 = e.target.files;
     setIsLoading(true);
     const res = await import('xlsx');

@@ -12,3 +12,6 @@
     "build": "parcel build index.html",
     "report": " parcel build index.js --reporter @parcel/reporter-bundle-analyzer"
 ···
+### 遗留问题2:
+发现react18也有问题，files是没丢失，但是input组件显示缺失了文件名
+因为新渲染的input是另一个了
