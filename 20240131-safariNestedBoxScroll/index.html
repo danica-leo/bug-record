@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Box Scroll Test</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .father {
+        height: 200vh;
+        background-color: red;
+      }
+      .son {
+        background-color: rgba(59, 40, 40, 0.5);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 100vh;
+        width: auto;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .inner-scroller {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        background-color: white;
+        height: 50vh;
+        width: 50vw;
+        overflow-y: scroll;
+        overscroll-behavior: contain;
+        /* overscroll-behavior-block: none; */
+      }
+      .content {
+        height: 200vh;
+        width: 100%;
+        background-color: #3333ff;
+      }
+      .mask {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="father" class="father">
+      <div id="son" class="son">
+        <!-- 在son里阻拦father的touchmove滚动 -->
+        <div class="mask"></div>
+        <div id="inner" class="inner-scroller">
+          <!-- 允许content的touchmove滚动,通过css阻拦inner滚动到终点以后带动father的滚动-->
+          <div class="content"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const father = document.getElementById('father');
+      const son = document.getElementById('son');
+      const inner = document.getElementById('inner');
+      father.addEventListener('scroll', function fatherScroll(e) {
+        console.log('father scroll');
+      });
+      father.addEventListener('touchmove', function fatherTouchMove(e) {
+        console.log('father touchmove');
+      });
+      son.addEventListener('touchmove', function sonTouchMove(e) {
+        console.log('son touchmove');
+        e.preventDefault();
+        e.stopPropagation();
+      });
+      son.addEventListener('scroll', function sonScroll(e) {
+        console.log('son scroll');
+      });
+      inner.addEventListener('touchmove', function innerTouchMove(e) {
+        console.log('inner touchmove');
+        e.stopPropagation();
+      });
+      inner.addEventListener('scroll', function innerScroll(e) {
+        console.log('inner scroll');
+      });
+      document.addEventListener('scroll', function documentScroll(e) {
+        console.log('document scroll');
+      });
+    </script>
+  </body>
+</html>
